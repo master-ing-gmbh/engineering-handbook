@@ -6,7 +6,7 @@ A single source of truth for all engineering standards at master.ing
 
 ```
 engineering-handbook/
-├── README.md                  # Overview + how to contribute
+├── README.md                  
 ├── general/
 │   └── git.md                 # Commit messages, branching, PR rules
 ├── frontend/
