@@ -1,4 +1,4 @@
-# Vue 3 Composition API – Coding Conventions
+# Vue – Coding Conventions
 
 ## Stack
 - Vue 3 + TypeScript + Composition API (`<script setup lang="ts">`)
