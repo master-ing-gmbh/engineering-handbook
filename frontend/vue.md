@@ -177,7 +177,7 @@ abstract class PaymentProvider { ... }
 class StripeProvider extends PaymentProvider { ... }
 class PaypalProvider extends PaymentProvider { ... }
 
-✅ Keep it inline
+✅ Solve for today, extend later
 async function processPayment(amount: number) {
   return await stripe.charge(amount)
 }
