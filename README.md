@@ -10,7 +10,7 @@ engineering-handbook/
 ├── general/
 │   └── git.md                 # Commit messages, branching, PR rules
 ├── frontend/
-│   ├── vue.md                 # ← Your Vue guide lives here
+│   ├── vue.md                 
 │   ├── javascript.md
 │   └── css.md
 ├── backend/
