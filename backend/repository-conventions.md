@@ -58,7 +58,7 @@ Rule of thumb: if the result still maps cleanly to *one* model, use relations in
 
 ## 2. Analytics repositories
 
-One repo per **reporting domain** (a business subject), not per table. Read-only. No Eloquent models — use the query builder and return DTOs, arrays, or `stdClass` collections.
+One repo per **reporting domain** (a business subject), not per table. Read-only. No Eloquent models — use the query builder or raw queries and return DTOs, arrays, or `stdClass` collections.
 
 **Naming:** suffix with `AnalyticsRepository`. Name the subject, not a table.
 
@@ -108,7 +108,6 @@ class CohortRetentionQuery
 |---|---|---|
 | Unit | One per model | One per reporting domain |
 | Returns | Eloquent models | DTOs / arrays / `stdClass` |
-| Backing | Single table (ORM) | Joined tables (query builder) |
 | Mutations | Yes | No — read-only |
 
 - Analytics repos never mutate. Transactional repos never do reporting joins.
