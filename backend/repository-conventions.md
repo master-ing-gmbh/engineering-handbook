@@ -10,7 +10,7 @@ One repo per Eloquent model. Returns Eloquent models.
 
 **Naming:** `{Model}Repository` → `UserRepository`, `OrderRepository`
 
-**Methods** describe persistence intent, not HTTP verbs. Never use `get` / `post` / `put` / `delete`.
+**Methods** describe persistence intent.
 
 ```php
 class UserRepository
@@ -22,12 +22,23 @@ class UserRepository
     public function create(array $data): User;
     public function update(User $user, array $data): User;
     public function delete(User $user): bool;
+    ...
 }
 ```
 
-**Query helpers** are the model-specific lookups beyond basic CRUD. Name them after the question they answer, not the SQL behind them. Use prefixes that signal the return type: `find...` (model or null), `findAll...`/plural (collection), `exists...` (bool), `count...` (int) — e.g. `findActiveByTeam(int $teamId)`, `existsByEmail(string $email)`.
+**Query helpers** are the model-specific lookups beyond basic CRUD. Name them after the question they answer, not the SQL behind them. 
+Use prefixes that signal the return type: `find...` (model or null), `findAll...`/plural (collection), `exists...` (bool), `count...` (int).
 
-**Need data from multiple models?** Decide by ownership:
+```php
+class UserRepository
+{
+    ...
+    public function findActiveByTeam(int $teamId): ?User;
+    public function existsByEmail(string $email): bool;
+}
+```
+
+### Need data from multiple models? Decide by ownership:
 
 - **One clear primary entity, related data enriches it** → keep it in that entity's repo and let Eloquent load the relations. The repo still returns the primary model (with relations attached), not a flat join.
 
